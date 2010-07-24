@@ -1,0 +1,24 @@
+<html>
+    <body>
+    <script src="http://spartanp.github.com/xauth/js/xauth.js"></script>
+    <script type="text/javascript">
+        function retrieveCallback(response) {
+            var tokens = response.tokens;
+            for(var domain in tokens) {
+                var token = tokens[domain]['token'];
+                var expiration = tokens[domain]['expire']; // could be useful
+                if(token == 'user_status=online') {
+                    // Do something smart for the user for this service!
+                }
+            }
+        }
+
+        XAuth.retrieve({
+          //retrieve: ["www.meebo.com", "www.youface.com", "onlineservice.com"],
+          retrieve: ["*"],
+          callback: retrieveCallback
+        });
+
+    </script>
+    </body>
+</html>
