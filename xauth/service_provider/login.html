@@ -1,0 +1,18 @@
+<html>
+    <body>
+    <script src="http://spartanp.github.com/xauth/js/xauth.js"></script>
+    <script type="text/javascript">
+        function extendSuccessCallback() {
+            alert("extend successfull");
+        }
+
+        XAuth.extend({
+          token: "user_status=online", // Whatever format the extender wants
+          expire: 1272529884557, // Could be however long your Remember Me lasts
+          extend: ["*"],
+          callback: extendSuccessCallback
+        });
+
+    </script>
+    </body>
+</html>
