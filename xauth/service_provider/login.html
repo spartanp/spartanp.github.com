@@ -6,9 +6,12 @@
             alert("extend successfull");
         }
 
+        var d = new Date(),
+            expiration = d.getTime() + 1000*60*60*24*30; // 30 days
+
         XAuth.extend({
           token: "user_status=online", // Whatever format the extender wants
-          expire: 1279936222204, // Could be however long your Remember Me lasts
+          expire: expiration, // Could be however long your Remember Me lasts
           extend: ["*"],
           callback: extendSuccessCallback
         });
