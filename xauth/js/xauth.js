@@ -37,9 +37,10 @@ var XAuth = (function() {
 	// Check for browser capabilities
 	var unsupported = !(win.postMessage && win.localStorage && win.JSON);
 	
-	var XAuthHostname = "xauth.org";
+	//var XAuthHostname = "xauth.org";
+	var XAuthHostname = "spartanp.github.com";
 	// TODO: https support. Needs CDN to have a proper cert
-	var XAuthServerUrl = "http://" + XAuthHostname + "/server.html";
+	var XAuthServerUrl = "http://" + XAuthHostname + "xauth/server/server.html";
 
 	// Cached references
 	var iframe = null;
