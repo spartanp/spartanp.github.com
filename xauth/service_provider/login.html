@@ -22,19 +22,21 @@
             var d = new Date(),
                 expiration = d.getTime() - 1000*60*60*24*30; // 30 days
 
-            XAuth.extend({
+            XAuth.expire({
+                /*
               token: "user_status=online", // Whatever format the extender wants
               expire: expiration, // Could be however long your Remember Me lasts
               extend: ["*"],
               callback: extendSuccessCallback
+              */
             });
         }
 
     </script>
     <h2> Fake Facebook </h2>
     <div> 
-        <input type="button" onclick="Login();"> Login </input>
-        <input type="button" onclick="Logout();"> Logout </input>
+        <input type="button" onclick="Login();" value="Login" />
+        <input type="button" onclick="Logout();" value="Logout" />
     </div>
 
     </body>
