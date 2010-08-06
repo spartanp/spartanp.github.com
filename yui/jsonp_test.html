@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script
+        src="http://yui.yahooapis.com/3.1.1/build/yui/yui.js"></script>
+        <script>
+            YUI({"filter": "raw"}).use("gallery-jsonp", {
+                Y.jsonp("http://query.yahooapis.com/v1/public/yql?q=show%20tables",
+                    function(r) {
+                        Y.log("callback one");
+                    });
+            });
+            YUI({"filter": "raw"}).use("gallery-jsonp", {
+                Y.jsonp("http://query.yahooapis.com/v1/public/yql?q=show%20tables",
+                    function(r) {
+                        Y.log("callback two");
+                    });
+            });
+        </script>
+    </body>
+</html>
