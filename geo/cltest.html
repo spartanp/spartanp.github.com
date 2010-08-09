@@ -1,0 +1,30 @@
+<html> 
+    <body style="margin:10px;"> 
+        <!-- YUI3 Css Reset & Base --> 
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssbase/base-min.css&3.1.0/build/cssfonts/fonts-min.css"> 
+ 
+        <iframe src="http://readymost.corp.yahoo.com:8081/play/geo/dl_iframe.html" id="geo_frame"
+        style="display:none;"></iframe> 
+        <h2> Current location demo </h2> 
+        <p> This page demos a technique to share current location across
+        sub-domains. It uses postMessage with a iframe to achieve this. </p> 
+        <input type="button" id="grab" value="Grab current location" /> 
+        <div> Your current location is: 
+            <div id="cl" style="font-weight: bold;"></div></div> 
+        <script 
+            src="http://l.yimg.com/a/combo?yui/3.1.1/build/yui/yui-min.js"></script> 
+        <script> 
+            YUI().use("node", function(Y) {
+                Y.on("click", function(e) {
+                    var ifw = Y.one("#geo_frame").get("contentWindow")._node;
+                    ifw.postMessage("", "*");
+                }, "#grab");
+ 
+                Y.on("message", function(e) {
+                    var c = Y.one("#cl");
+                    c.set("innerHTML", e._event.data);
+                }, window);
+            });
+        </script> 
+    </body> 
+</html>
