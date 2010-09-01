@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd"
+xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user"> 
+    <meta>
+        <author>Prathap Natarajan</author>
+        <description>
+            Template open table definition for y/t auth, yca + scalable
+            oAuth for internal webservice calls
+        </description>
+        <documentationURL></documentationURL>
+    </meta>
+    <i:bindings>
+        <i:select itemPath="" produces="XML" auth="yahooCookie">
+            <urls>
+                <url>http://finance.yahoo.com/p</url>
+            </urls>
+            <inputs>
+                <key id="k" type="xs:string" paramType="query" default="pf_1"/>
+
+            </inputs>
+            <execute><![CDATA[
+               var data = request.accept("text/html").get().response; 
+               response.object = <response>{y.xpath(data, "//td[@class=\" text_value\"]//a")}</response>;
+            ]]></execute>
+        </i:select> 
+    </i:bindings>
+</i:table>
+
