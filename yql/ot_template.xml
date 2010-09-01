@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd"
-xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user"> 
+<i:table xmlns:i="http://query.yahooapis.com/v1/schema/internalTable.xsd" xmlns="http://query.yahooapis.com/v1/schema/table.xsd" securityLevel="user"> 
     <meta>
         <author>Prathap Natarajan</author>
         <description>
