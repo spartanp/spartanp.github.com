@@ -3,7 +3,8 @@
   <meta>
     <author>Paul Tarjan</author>
     <documentationURL>http://search.yahoo.com</documentationURL>
-    <description>Search Suggestions</description>
+    <description>Search Suggestions
+</description>
     <sampleQuery>select k from {table} where command="yahoo"</sampleQuery>
   </meta>
   <bindings>
