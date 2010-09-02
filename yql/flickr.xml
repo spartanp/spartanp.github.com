@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <table xlmns="http://query.yahooapis.com/v1/schema/table.xsd">
-  <a class="link" href="yql-opentables-reference.html#yql-opentables-meta" title="meta element"><meta></a>
+  <meta>
     <author>Yahoo! Inc.</author>
     <documentationURL>http://www.flickr.com/services/api/flickr.photos.search.html</documentationURL>
     <sampleQuery>select * from {table} where has_geo="true" and text="san francisco"</sampleQuery>
-  <a class="link" href="yql-opentables-reference.html#yql-opentables-meta" title="meta element"></meta></a>
+  </meta>
   <bindings>
    <select itemPath="rsp.photos.photo" produces="XML">
       <urls>
