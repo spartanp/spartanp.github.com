@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xlmns="http://query.yahooapis.com/v1/schema/table.xsd">
+  <a class="link" href="yql-opentables-reference.html#yql-opentables-meta" title="meta element"><meta></a>
+    <author>Yahoo! Inc.</author>
+    <documentationURL>http://www.flickr.com/services/api/flickr.photos.search.html</documentationURL>
+    <sampleQuery>select * from {table} where has_geo="true" and text="san francisco"</sampleQuery>
+  <a class="link" href="yql-opentables-reference.html#yql-opentables-meta" title="meta element"></meta></a>
+  <bindings>
+   <select itemPath="rsp.photos.photo" produces="XML">
+      <urls>
+        <url env="all">http://api.flickr.com/services/rest/?method=flickr.photos.search</url>
+      </urls>
+      <paging model="page">
+        <start id="page" default="0" />
+        <pagesize id="per_page" max="250" />
+        <total default="10" />
+      </paging>
+      <inputs>
+        <key id="woe_id" type="xs:string" paramType="query" />
+        <key id="user_id" type="xs:string" paramType="query" />
+        <key id="tags" type="xs:string" paramType="query" />
+        <key id="tag_mode" type="xs:string" paramType="query" />
+        <key id="text" type="xs:string" paramType="query" />
+        <key id="min_upload_date" type="xs:string" paramType="query" />
+        <key id="max_upload_date" type="xs:string" paramType="query" />
+        <key id="min_taken_date" type="xs:string" paramType="query" />
+        <key id="max_taken_date" type="xs:string" paramType="query" />
+        <key id="license" type="xs:string" paramType="query" />
+        <key id="privacy_filter" type="xs:string" paramType="query" />
+        <key id="bbox" type="xs:string" paramType="query" />
+        <key id="accuracy" type="xs:string" paramType="query" />
+        <key id="safe_search" type="xs:string" paramType="query" />
+        <key id="content_type" type="xs:string" paramType="query" />
+        <key id="machine_tags" type="xs:string" paramType="query" />
+        <key id="machine_tag_mode" type="xs:string" paramType="query" />
+        <key id="group_id" type="xs:string" paramType="query" />
+        <key id="contacts" type="xs:string" paramType="query" />
+        <key id="place_id" type="xs:string" paramType="query" />
+        <key id="media" type="xs:string" paramType="query" />
+        <key id="has_geo" type="xs:string" paramType="query" />
+        <key id="lat" type="xs:string" paramType="query" />
+        <key id="lon" type="xs:string" paramType="query" />
+        <key id="radius" type="xs:string" paramType="query" />
+        <key id="radius_units" type="xs:string" paramType="query" />
+        <key id="extras" type="xs:string" paramType="query" />
+        <key id="api_key" type="xs:string" const="true" private="true" paramType="query" default="45c53f8...d5f645"/>
+      </inputs>
+    </select>
+  </bindings>
+</table>
