@@ -4,10 +4,14 @@
     <script type="text/javascript">
         function retrieveCallback(response) {
             var tokens = response.tokens;
+            var el = document.getElementById("con");
             for(var domain in tokens) {
                 var token = tokens[domain]['token'];
                 var expiration = tokens[domain]['expire']; // could be useful
                 if(token == 'user_status=online') {
+                    var mk = document.createElement("div");
+                    mk.innerHtml = "domain";
+                    el.appendChild(mk);
                     // Do something smart for the user for this service!
                 }
             }
@@ -20,5 +24,7 @@
         });
 
     </script>
+    <div id="con">
+    </div>
     </body>
 </html>
