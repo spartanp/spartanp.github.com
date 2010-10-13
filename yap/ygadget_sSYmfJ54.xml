@@ -19,8 +19,8 @@
                                ModulePrefs@category,
                                ModulePrefs/Icon,
                                ModulePrefs/Locale -->
-    <ModulePrefs title="UntitledApp1"
-                 description="FULL_DESCRIPTION_OF_YOUR_APP"
+    <ModulePrefs title="Zynga test application"
+                 description="Test application for zynga features"
                  category=""
                  category2="">
                  <Icon></Icon> <!-- Favicon URL, 16x16, Will be converted to .gif for use on Yahoo.com homepage -->        
