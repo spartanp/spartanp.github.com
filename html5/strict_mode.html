@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Strict Mode </title>
+    </head>
+    <body>
+        <script>
+            function b(arguments) {
+                var eval = "test";
+            };
+
+            function a() {
+                "use strict";
+                var a = "hello";
+                b();
+            };
+
+            a();
+        </script>
+    </body>
+</html>

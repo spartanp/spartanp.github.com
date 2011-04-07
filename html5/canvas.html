@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Play with canvas </title>
+    </head>
+    <body>
+        <style>
+            canvas {
+                border: 1px solid blue;
+            }
+        </style>
+        <canvas id="tutorial" width="150" height="150">
+            Your browser doesn't support canvas!
+        </canvas>
+        <script>
+            function onload() {
+                var e = document.getElementById("tutorial"),
+                    ctx;
+
+                if (e.getContext) {
+                    ctx = e.getContext("2d");
+
+                    ctx.fillStyle = "rgb(200, 0 , 0)";
+                    ctx.fillRect(10, 10, 40, 40);
+                }
+            };
+            onload();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <style>
+            .cell {
+                display: inline-block;
+                width: 150px;
+                height: 500px;
+                text-align: center;
+                border: 1px solid black;
+            }
+            .con {
+                width: 500px;
+                height: 500px;
+                overflow: hidden;
+            }
+        </style>
+        <div id="con" class="con">
+            <div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            </div>
+        </div>
+
+        <script>
+            YUI({"filter": "raw"}).use("scrollview", function(Y) {
+                var scrollview = Y.ScrollView({srcNode: "#con"});
+                scrollView.render();
+            });
+        </script>
+    </body>
+</html>
