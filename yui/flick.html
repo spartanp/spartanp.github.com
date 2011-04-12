@@ -13,11 +13,9 @@
             .con {
                 width: 500px;
                 height: 500px;
-                overflow: hidden;
             }
         </style>
         <div id="con" class="con">
-            <div>
             <div class="cell">
                 Cell1
             </div>
@@ -38,14 +36,13 @@
             </div>
             <div class="cell">
                 Cell1
-            </div>
             </div>
         </div>
 
         <script>
             YUI({"filter": "raw"}).use("scrollview", function(Y) {
-                var scrollview = Y.ScrollView({srcNode: "#con"});
-                scrollView.render();
+                var scrollview = new Y.ScrollView({srcNode: "#con"});
+                scrollview.render();
             });
         </script>
     </body>
