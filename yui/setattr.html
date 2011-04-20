@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <input id="p" value="enter name">
+        <script>
+            YUI({"filter": "raw"}).use("event", "node",  function(Y) {
+                var i = Y.one("#p");
+                i.on("focus", function(e) {
+                    i.setAttribute("value", "");
+                });
+            });
+        </script>
+    </body>
+</html>
