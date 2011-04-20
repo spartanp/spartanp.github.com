@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Orientation Chage </title>
+
+    <!-- JQuery Mobile JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.js"></script>
+
+    <!-- YUI Js -->
+    <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js"></script>
+  </head>
+  <body>
+    <h2> Event Logger </h2>
+    <div id="logger">
+    </div>
+    <script>
+        YUI().use("event", "node", function(Y) {
+            var d = Y.config.doc,
+                logger = Y.one("#logger");
+            Y.on("orientationchange", function(e) {
+                var nn = Y.Node.create("<div> event type: " + e.type + "</div>");
+                logger.appendChild(nn);
+            }, d);
+        });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,31 @@
+" switch on the sytax
+syntax on
+
+"show line numbers
+set number
+
+" expand tabs
+set expandtab
+
+" set line width
+set textwidth=80
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" auto indent
+set autoindent
+set smartindent
+
+" case insensitive search
+set ic
+
+" for html files
+autocmd FileType html source ~/.vim/html.vim
+autocmd FileType js source ~/.vim/js.vim
+autocmd FileType ros source ~/.vim/ros.vim
+
+" associate .ros with php syntax
+filetype on
+au BufnewFile,BufRead *.ros set filetype=php
