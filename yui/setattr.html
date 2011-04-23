@@ -3,7 +3,10 @@
     <head>
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
     </head>
-    <body style="margin:10px;">
+    <body style="margin:10px;width:800px;">
+        <h1 style="color:green;"> Instructions: </h2>
+        <p style="font-size: 2em;">clear the input field and set the default value back using the buttons, event listeners are registered. Note that setting a input value using "setAttribute()" method screws up the "defaultValue" of the input </p>
+        <div style="color:blue;font-size: 1.5em"> Tested on: Chrome, FF4 </div>
         <h2> tests using setAttribute() method </h2>
         <div>
         <input id="p" value="setAttribute() Test">
@@ -46,5 +49,8 @@
 
             });
         </script>
+
+        <h1> Code: </h1>
+        <script src="https://gist.github.com/938022.js"></script>
     </body>
 </html>
