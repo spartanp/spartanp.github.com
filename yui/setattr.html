@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body style="margin:10px;">
+        <h2> tests using setAttribute() method </h2>
+        <div>
+        <input id="p" value="setAttribute() Test">
+        <button id="csa"> Clear value using setAttribute() method </button>
+        <button id="sa"> Set the default value back using setAttribute method </button>
+        </div>
+
+        <h2> tests using set() method </h2>
+        <div>
+        <input id="pv" value="set() test">
+        <button id="csv"> Clear value using set() method </button>
+        <button id="sv"> Set the default value using set() method </button>
+        </div>
+
         <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
-        <input id="p" value="enter name">
         <script>
             YUI({"filter": "raw"}).use("event", "node",  function(Y) {
-                var i = Y.one("#p");
-                i.on("focus", function(e) {
+                var i = Y.one("#p"),
+                    iv = Y.one("#pv");
+                
+                // setAttribute
+                Y.on("click", function(e) {
                     i.setAttribute("value", "");
-                });
+                }, "#csa");
+                Y.on("click", function(e) {
+                    var defaultVal = i.get("defaultValue");
+                    Y.log("setAttribute() test default value is: " + defaultVal);
+                    i.setAttribute("value", defaultVal);
+                }, "#sa");
+
+                // set
+                Y.on("click", function(e) {
+                    iv.set("value", "");
+                }, "#csv");
+                Y.on("click", function(e) {
+                    var defaultVal = iv.get("defaultValue");
+                    Y.log(" set() test default value is: " + defaultVal);
+                    iv.set("value", defaultVal);
+                }, "#sv");
+
             });
         </script>
     </body>
