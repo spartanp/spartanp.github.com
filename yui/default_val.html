@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body style="margin:10px;width:800px;">
+        <h1 style="color:green;"> Instructions: </h2>
+        <p style="font-size: 2em;">clear the input field and set the default value back using the buttons, event listeners are registered. Note that setting a input value using "setAttribute()" method screws up the "defaultValue" of the input </p>
+        <div style="color:blue;font-size: 1.5em"> Tested on: Chrome, FF4 </div>
+
+        <form action="./srp.html" method="get">
+            <input type="text" value="search query" id="p">
+            <input type="submit" value="search">
+        </form>
+
+        <div id="dv">
+        </div>
+
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <script>
+            YUI({"filter": "raw"}).use("event", "node",  function(Y) {
+                var i = Y.one("#p");
+
+                i.on("focus", function(e) {
+                    var target = e.target,
+                        dv = target.get("defaultValue");
+
+                    var logTxt = "default value is: " + dv;
+                    Y.log(logTxt);
+                    Y.one("#dv").set("innerHTML", logTxt);
+                    if (target.get("value") === dv) {
+                        target.set("value", "");
+                    }
+                });
+
+            });
+        </script>
+
+    </body>
+</html>
