@@ -9,6 +9,20 @@
                 i.on("focus", function(e) {
                     i.set("value", "");
                 });
+
+                i.on("keydown", function(e) {
+                    if (e.keyCode === 27) {
+                        e.preventDefault();
+                        e.halt();
+                    }
+                });
+
+                i.on("keyup", function(e) {
+                    if (e.keyCode === 27) {
+                        e.preventDefault();
+                    }
+                });
+
             });
         </script>
     </body>
