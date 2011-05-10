@@ -6,13 +6,14 @@
         <input id="p1" value="without escape key handler">
         <script>
             YUI({"filter": "raw"}).use("event", "node",  function(Y) {
-                var i = Y.one("#p");
+                var i = Y.one("#p"),
+                    i2 = Y.one("#p1");
                 i.on("focus", function(e) {
                     i.set("value", "");
                 });
 
-                Y.one("#p1").on("focus", function(e) {
-                    i.set("value", "");
+                i2.on("focus", function(e) {
+                    i2.set("value", "");
                 });
 
                 if (Y.UA.ie) {
