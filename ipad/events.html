@@ -60,7 +60,7 @@
                         touchEndListener;
                     Y.log("touch start on: pagex=" + firstTouch.pageX + " pagey=" + firstTouch.pageY + 
                     " clientX= " + firstTouch.clientX + " clientY = " + firstTouch.clientY + 
-                    " screenX= " + firstTouch.screenX + " screenY =" + firstTouch.screenY );
+                    " screenX= " + firstTouch.screenX + " screenY =" + firstTouch.screenY, "info" );
 
                     trackX = firstTouch.pageX;
                     trackY = firstTouch.clientY;
@@ -76,10 +76,10 @@
                         
                         Y.log("touch end on: pagex=" + secondTouch.pageX + " pagey=" + secondTouch.pageY + 
                         " clientX= " + secondTouch.clientX + " clientY = " + secondTouch.clientY + 
-                        " screenX= " + secondTouch.screenX + " screenY =" + secondTouch.screenY );
+                        " screenX= " + secondTouch.screenX + " screenY =" + secondTouch.screenY, "warn" );
                         
                         if ( (downX < currentX < upX) && (downY < currentY < upY) ) {
-                            Y.log("click event should be trigerred", "warn");
+                            Y.log("click event should be trigerred", "error");
                         }
                     }, false);
 
