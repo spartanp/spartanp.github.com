@@ -55,7 +55,7 @@
                     trackY = 0;
 
 
-                con.addEventListener("touchstart", function(e) {
+                con.addEventListener("touchstart1", function(e) {
                     var firstTouch = e.targetTouches[0],
                         touchEndListener;
                     Y.log("touch start on: pagex=" + firstTouch.pageX + " pagey=" + firstTouch.pageY + 
@@ -67,7 +67,7 @@
 
                 }, false);
 
-                con.addEventListener("touchend", function(ev) {
+                con.addEventListener("touchend1", function(ev) {
                     var secondTouch = ev.changedTouches[0],
                         upX = (trackX + threshold),
                         downX = (trackX - threshold),
@@ -86,8 +86,13 @@
                         Y.log("click event should be trigerred", "error");
                     }
                 }, false);
+
+                con.addEventListener("click", function(ev) {
+                    Y.log("click event occured");
+                }, false);
  
             });
+
         </script>
     </body>
 </html>
