@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <body class="yui3-skin-sam">
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <style>
+            .cell {
+                display: inline-block;
+                width: 150px;
+                height: 500px;
+                text-align: center;
+                border: 1px solid black;
+            }
+            .con {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+        <div id="con" class="con">
+            <div class="cell">
+                Cell1
+                <div class="innercell">
+                    Inner content
+                </div>
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+        </div>
+
+        <div id="logger">
+        </div>
+
+        <script>
+            YUI({"filter": "raw"}).use("node", "event", "console", "event-touch", "dump", function(Y) {
+                new Y.Console().render();
+
+                var con = Y.one("#con"),
+                    threshold = 0,
+                    trackX,
+                    trackY;
+
+
+                con.on("touchstart", function(e) {
+                    var firstTouch = e.targetTouches[0],
+                        touchEndListener;
+                    Y.log("touch start on: x=" + firstTouch.clientX + " y=" + firstTouch.clientY);
+
+                    trackX = firstTouch.clientX;
+                    trackY = firstTouch.clientY;
+                    
+                    touchEndListener = con.on("touchend", function(ev) {
+                        var firstTouch = e.changedTouches[0],
+                            upX = (trackX + threshold),
+                            downX = (trackX - threshold),
+                            upY = (trackY + threshold),
+                            downY = (trackY - threshold),
+                            currentX = firstTouch.clientX,
+                            currentY = firstTouch.clientY;
+                        Y.log("touch end on: x=" + firstTouch.clientX + " y=" + firstTouch.clientY);
+                        if ( (downX < currentX < upX) && (downY < currentY < upY) ) {
+                            Y.log("click event should be trigerred", "error");
+                        }
+                        touchEndListener.detach();
+                    });
+
+                });
+            });
+        </script>
+    </body>
+</html>
