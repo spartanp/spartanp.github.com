@@ -47,7 +47,7 @@
 
         <script>
             YUI({"filter": "raw"}).use("node", "event", "console", "event-touch", "dump", function(Y) {
-                new Y.Console().render();
+                new Y.Console({height: "1000px"}).render();
 
                 var con = document.getElementById("con"),
                     threshold = 0,
@@ -81,7 +81,6 @@
                         if ( (downX < currentX < upX) && (downY < currentY < upY) ) {
                             Y.log("click event should be trigerred", "warn");
                         }
-                        touchEndListener.detach();
                     }, false);
 
                 }, false);
