@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <body class="yui3-skin-sam">
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <style>
+            .cell {
+                display: inline-block;
+                width: 150px;
+                height: 500px;
+                text-align: center;
+                border: 1px solid black;
+            }
+            .con {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+        <div id="con" class="con">
+            <div class="cell">
+                Cell1
+                <div class="innercell">
+                    Inner content
+                </div>
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+            <div class="cell">
+                Cell1
+            </div>
+        </div>
+
+        <div id="logger">
+        </div>
+
+        <script>
+            YUI({"filter": "raw"}).use("node", "event", "console", "event-touch", "dump", function(Y) {
+                new Y.Console({height: "1000px"}).render();
+
+                var con = Y.one("#con"),
+                    threshold = 10,
+                    trackX = 0,
+                    trackY = 0;
+
+
+                con.on("touchstart", function(e) {
+                    var firstTouch = e.targetTouches[0],
+                        touchEndListener;
+                    Y.log("touch start on: pagex=" + firstTouch.pageX + " pagey=" + firstTouch.pageY + 
+                    " clientX= " + firstTouch.clientX + " clientY = " + firstTouch.clientY + 
+                    " screenX= " + firstTouch.screenX + " screenY =" + firstTouch.screenY, "info" );
+
+                    trackX = firstTouch.pageX;
+                    trackY = firstTouch.pageY;
+
+                });
+
+                con.on("touchend", function(ev) {
+                    var secondTouch = ev.changedTouches[0],
+                        upX = (trackX + threshold),
+                        downX = (trackX - threshold),
+                        upY = (trackY + threshold),
+                        downY = (trackY - threshold),
+                        currentX = secondTouch.pageX,
+                        currentY = secondTouch.pageY;
+                    
+                    Y.log("touch end on: pagex=" + secondTouch.pageX + " pagey=" + secondTouch.pageY + 
+                    " clientX= " + secondTouch.clientX + " clientY = " + secondTouch.clientY + 
+                    " screenX= " + secondTouch.screenX + " screenY =" + secondTouch.screenY, "warn" );
+
+                    //Y.log("downX = " + downX + " upX= " + upX);
+                    
+                    if ( (downX <= currentX) && (currentX <= upX) && (downY <= currentY) && (currentY <= upY)) {
+                        Y.log("click event should be trigerred", "error");
+                    }
+                });
+ 
+            });
+        </script>
+    </body>
+</html>

@@ -4,6 +4,9 @@ syntax on
 "show line numbers
 set number
 
+" highlight the damn search.
+set hlsearch
+
 " expand tabs
 set expandtab
 
