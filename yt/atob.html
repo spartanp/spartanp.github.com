@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Play from A to B </title>
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body>
+    <div id="ytapiplayer">
+        You need Flash player 8+ and JavaScript enabled to view this video.
+    </div>
+
+    <div class="controls">
+    <button id="a"> mark A </button>
+    <button id="b"> mark B </button>
+    <button id="ab">play from A to B </button>
+    <input type="checkbox" id="repeat" checked="checked"> repeat?
+    </div>
+
+    <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+    <script>
+        // do the stuff once the player is ready.
+        function onYouTubePlayerReady() {
+
+        YUI({"filter": "raw"}).use("event", "node", function(Y) {
+            var a = Y.one("#a"),
+                b = Y.one("#b"),
+                ab = Y.one("#ab"),
+
+                // hard coded time for the song that inspired me to do this.
+                pointA = 196,
+                pointB = 217,
+                player = document.getElementById("myytplayer");
+
+            a.on("click" , function(e) {
+                var tempTime = player.getCurrentTime();
+                Y.log("time a is: " + tempTime);
+                pointA = tempTime;
+            });
+
+            b.on("click" , function(e) {
+                var tempTime = player.getCurrentTime();
+                Y.log("time b is: " + tempTime);
+                pointB = tempTime;
+            });
+
+            function playFromAtoB(a, b, repeat) {
+                var playDuration = (b - a) * 1000;
+
+                // seek to startposition.
+                player.seekTo(a, true);
+                player.playVideo();
+
+                playTimer = Y.later(playDuration, null, function() {
+                    if (repeat) {
+                        player.seekTo(a, true);
+                    } else {
+                        player.stopVideo();
+                        playTimer.cancel();
+                    }
+                }, null, true);
+
+            }
+
+            ab.on("click", function(e) {
+                var a = pointA > pointB ? pointB : pointA,
+                    b = pointA > pointB ? pointA : pointB,
+                    repeat = Y.one("#repeat").get("checked");
+
+                Y.log("the value of repeat is: " + repeat);
+                playFromAtoB(a, b, repeat);
+            });
+
+            // start playing on load.
+            playFromAtoB(pointA, pointB, true);
+        });
+
+        }
+    </script>
+
+    <!-- embed the player -->
+    <script src="./swfobject/swfobject.js"></script>
+    <script type="text/javascript">
+        var params = { allowScriptAccess: "always" },
+            atts = { id: "myytplayer" },
+            videoId = "BRZ1NXlBRhE";
+        swfobject.embedSWF("http://www.youtube.com/e/" + videoId + "?enablejsapi=1&playerapiid=ytplayer",
+                       "ytapiplayer", "425", "356", "8", null, null, params, atts);
+    </script>
+
+    </body>
+</html>
