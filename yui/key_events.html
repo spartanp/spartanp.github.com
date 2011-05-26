@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body class="yui3-skin-sam">
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <script>
+            YUI({"filter": "raw"}).use("event", "node",  "key-up", "console", function(Y) {
+                new Y.Console().render();
+                
+                Y.on("keyup", function(e) {
+                    Y.log("keycode is: " + e.keyCode + " ctrlkey is: " + e.ctrlKey);
+                }, document);
+
+            });
+        </script>
+    </body>
+</html>

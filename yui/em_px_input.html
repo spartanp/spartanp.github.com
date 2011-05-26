@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body class="yui3-skin-sam" style="width:500px;">
+        <script src="http://yui.yahooapis.com/3.3.0/build/yui/yui.js" charset="utf-8"></script>
+        <div style="width:500px;border:1px solid black;">
+            fixed width div
+        </div>
+        <div style="width:31em;border:1px solid black;">
+            <input type="text" style="width:16px;" value="pixel width">
+            <br/>
+            <input type="text" style="width:1em;" value="em width">
+            <br/>
+            <input type="text" style="width:32px;" value="pixel width">
+            <br/>
+            <input type="text" style="width:3em;" value="em width">
+        </div>
+            
+            <input type="text" style="width:16px;" value="pixel width">
+            <br/>
+            <input type="text" style="width:1em;" value="em width">
+            <br/>
+            <input type="text" style="width:32px;" value="pixel width">
+            <br/>
+            <input type="text" style="width:3em;" value="em width">
+        <div style="width:16px;border:1px solid black;">
+            fixed width div
+        </div>
+        <div style="width:1em;border:1px solid black;">
+            fixed width div
+        </div>
+
+        <script>
+            YUI({"filter": "raw"}).use("event", "node",  "key-up", "console", function(Y) {
+                //new Y.Console().render();
+                
+                Y.on("keyup", function(e) {
+                    Y.log("keycode is: " + e.keyCode + " ctrlkey is: " + e.ctrlKey);
+                }, document);
+
+            });
+        </script>
+    </body>
+</html>
