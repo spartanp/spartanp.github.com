@@ -4,6 +4,9 @@ syntax on
 "show line numbers
 set number
 
+" show the ruler
+set ruler
+
 " highlight the damn search.
 set hlsearch
 
