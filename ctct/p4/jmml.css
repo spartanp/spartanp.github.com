@@ -1,0 +1,25 @@
+.jmml-widget-con {
+    border: 1px dotted #087bbe;
+    width: 350px;
+    padding: 10px;
+}
+
+.jmml-widget-con .email {
+    padding: 2px;
+}
+
+.jmml-widget-con .prompt {
+    color: #9193a3;
+}
+
+.jmml-widget-con .hide {
+    display: none;
+}
+
+.jmml-widget-con .email {
+    border: 1px solid #ccc8c8;
+}
+
+.jmml-widget-con .email-error {
+    color: red;
+}
