@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title> Like Example </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body>
+        <style>
+        .page {
+            width: 74.8em;
+            margin: 0 auto;
+        }
+        </style>
+        <div class="page">
+            <h1> Facebook Like Button Example </h1>
+
+            <h2> Single like button </h2>
+            <div id="fb-root">
+            </div>
+            <fb:like href="spartanp.github.com" send="true" width="450" show_faces="true" font="arial">
+            </fb:like>
+
+            <h2> You can have more that one like button as well, with whatever variations you want </h2>
+
+            <h3> With send button </h3>
+            <fb:like href="spartanp.github.com" send="true" width="450" show_faces="true" font="arial">
+            </fb:like>
+
+            <h3> Without send button </h3>
+            <fb:like href="spartanp.github.com" send="false" width="450" show_faces="true" font="arial">
+            </fb:like>
+
+            <h3> Without send button and without faces </h3>
+            <fb:like href="spartanp.github.com" send="false" width="450" show_faces="false">
+            </fb:like>
+
+            <h2> You can link other websites as well, if you want. The application id doesn't matter </h2>
+            
+            <h3> Constant Contact </h3>
+            <fb:like href="constantcontact.com" send="false" width="450" show_faces="true">
+            </fb:like>
+
+            <h3> Yahoo </h3>
+            <fb:like href="yahoo.com" send="false" width="450" show_faces="true">
+            </fb:like>
+
+        </div>
+        
+        <script src="http://connect.facebook.net/en_US/all.js#appId=162509917148524&amp;xfbml=1"></script>
+
+        <script>
+        </script>
+    </body>
+</html>

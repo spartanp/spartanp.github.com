@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title> Inline Event Handler </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body>
+        <style>
+        .page {
+            width: 74.8em;
+            margin: 0 auto;
+        }
+        </style>
+        <div class="page">
+        <h2> Why you should not use html attributes to do event listeners </h2>
+        <a href="#" onclick="handleClick();">click here</a>
+        <br>
+        <a href="#" onclick="a.handleClick();">event listener on a object</a>
+
+        <script>
+            function handleClick() {
+                console.log("handling click");
+            }
+
+            var a = {
+                handleClick: function(e) {
+                    console.log("handle click");
+                }
+            };
+        </script>
+    </body>
+</html>
