@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title> Share block example </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body>
+        <style>
+        .page {
+            width: 74.8em;
+            margin: 0 auto;
+        }
+
+ 
+ 
+        </style>
+        <div class="page">
+            <h1> Facebook Like Button Example </h1>
+            <h1><a href="https://developers.facebook.com/docs/reference/plugins/like/">Documentation</a></h1>
+
+            <h2> UI Share dialog </h2>
+            
+            <div id="fb-root">
+            </div>
+             <a href="javascript:void(0)" style="text-decoration: none;">
+                <span class="fb_share_size_Small ">
+                    <span style="cursor:pointer;" class="FBConnectButton FBConnectButton_Small">
+                        <span class="FBConnectButton_Text">Share</span>
+                    </span>
+            </a>
+            <p>
+                <a href="javascript:void(0)" id="post-to-feed">
+                    post to feed - display: popup
+                </a>
+            </p>
+           
+            <div id="msg"></div>
+
+            <a name="fb_share"></a> 
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+        type="text/javascript">
+</script>
+           
+
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script>
+            window.fbAsyncInit = function() {
+               FB.init({
+                appId  : '152184248207155', // local host app id
+                status : true, // check login status
+                cookie : true, // enable cookies to allow the server to access the session
+                xfbml  : true // parse XFBML
+              });
+          
+              $("#post-to-feed").click(function(e) {
+
+                // calling the API ...
+                var obj = {
+                  method: 'feed',
+                  link: 'http://on.fb.me/p7KFXL',
+                  display: "popup",
+                  picture: 'http://fbrell.com/f8.jpg',
+    //            name: 'Facebook Dialogs',
+                  caption: 'FB Rell'
+    //            description: 'Using Dialogs to interact with users.'
+                };
+        
+                function callback(response) {
+                  document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+                }
+        
+                FB.ui(obj, callback);
+              });
+              FB.Event.subscribe('edge.create',
+                function(response) {
+                    window.top.location = "http://www.facebook.com/pages/Spartan-Inc/216928404997036?sk=app_136541613110954";
+                }
+              );
+             };
+        </script>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+    </body>
+</html>
