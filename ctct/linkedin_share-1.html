@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title> Constant Contact Widgets - Demo </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body class="yui3-skin-sam" id="v9_document_id">
+        <style>
+        .page {
+            width: 74.8em;
+            margin: 0 auto;
+        }
+        </style>
+        <div id="fb-root"></div>
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                //Your app details here
+                FB.init({
+                    //appId: '219866331386899', // constant contact D1 - social.d1.constantcontact.com - smm.d1.constantcontact.com
+                    appId: '184432924983867', // localhost:8080 
+                status: true, cookie: true, xfbml: true});
+                //Resize the iframe when needed
+                FB.Canvas.setAutoResize(100);
+            };
+        
+            //Load the SDK asynchronously
+            (function() {
+                var e = document.createElement('script'); e.async = true;
+                e.src = document.location.protocol +
+                  '//connect.facebook.net/en_US/all.js';
+                document.getElementById('fb-root').appendChild(e);
+            }());
+        </script>
+        
+        <script>
+            var FBInitInfo = {
+                cm:'2c881071-889d-4d69-a2cb-4eeaed065798',
+                ct:'296bfdee-4054-480a-b1c8-c3aeb43e6658',
+                ai:'10b6af34-380f-4a13-ba73-2ce749cab93e',
+                ac:'1100348032491',
+                ck:'4E53F8656B3FC06F4A44ED1FA61CB430',
+                at:'0'
+            }
+        
+        </script>
+
+        <div class="page">
+        <h2> Demo page for Share Block on P4 (FB, Linked In)</h2>
+
+        <link rel="stylesheet" type="text/css" href="/sclp/static/css/share-block.css">
+        <div class="" data-widgetname="sc-share">
+                 <a class="ctct-fb-share" href="https://www.facebook.com/pages/Ctct/175751875831431?sk=app_219866331386899">
+                     <img src="https://imgssl.constantcontact.com/ed/content/fb_share_icon.png" alt="Share on Facebook">
+                </a>
+                
+                <a href="https://www.facebook.com/pages/Ctct/175751875831431?sk=app_219866331386899" class="twitter-share-button" data-url="https://www.facebook.com/pages/Ctct/175751875831431?sk=app_219866331386899" data-count="none">Tweet</a>
+                <script type="IN/Share" data-url="https://www.facebook.com/pages/Ctct/175751875831431?sk=app_219866331386899" data-onsuccess="handleSuccessfulLinkedInShare"></script>
+                <a href="mailto:?body=https://www.facebook.com/pages/Ctct/175751875831431?sk=app_219866331386899" class="ctct-email-share">
+                    <img src="https://imgssl.constantcontact.com/ed/content/email-button-share-block.png" alt="Share using Email">
+                </a>
+            </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" charset="utf-8"></script>
+        <script src="http://social.constantcontact.com/sclp/static/js/tplib/json2.js"></script>
+        <script type="text/javascript" src="/sclp/static/js/track.js"></script>
+        
+        <script src="http://social.constantcontact.com/sclp/static/js/share-block.js"></script>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+        <script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+    </body>
+</html>
