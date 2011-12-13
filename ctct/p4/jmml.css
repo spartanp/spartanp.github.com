@@ -1,23 +1,32 @@
-.jmml-widget-con {
-    border: 1px dotted #087bbe;
-    width: 350px;
-    padding: 10px;
+.jmml-widget-con input.email,
+.jmml-widget-con input.firstname,
+.jmml-widget-con input.lastname
+ {
+    width: 210px;
+    padding: 3px 6px;
+    border: 1px solid #cdc8c8;
+    font: italic 10pt sans-serif;
+    margin: 10px 0;
 }
 
-.jmml-widget-con .email {
-    padding: 2px;
-}
-
-.jmml-widget-con .prompt {
-    color: #9193a3;
+.jmml-widget-con input.prompt {
+    color: #929292;
 }
 
 .jmml-widget-con .hide {
     display: none;
 }
 
-.jmml-widget-con .email {
-    border: 1px solid #ccc8c8;
+.jmml-widget-con input.join {
+    font: bold 10pt sans-serif;
+    text-shadow: 0 1px 0 #fff;
+    border: 1px solid #a0a0a0;
+    padding: 2px 6px;
+    margin-left: 4px;
+    cursor: pointer;
+    background: #f0eff0;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(223,223,222)), color-stop(1, rgb(244,244,245)));
+    background-image: -moz-linear-gradient(center bottom, rgb(223,223,222) 0%, rgb(244,244,245) 100%);
 }
 
 .jmml-widget-con .email-error {

@@ -28,15 +28,15 @@ $(document).ready(function() {
 
             // nodes of interest.
             this.join = con.find(".join");
-            this.emailInput = con.find(".email");
-            this.promptText = this.emailInput[0].defaultValue; // I hate this.
+            this.emailInput = con.find("input.email");
+            this.emailPromptText = this.emailInput[0].defaultValue; // I hate this.
             this.subscribeCon = con.find(".subscribe-con");
             this.successMsg = con.find(".success-msg-con");
             this.emailErrorMsg = con.find(".email-error");
 
             // initialize event listeners.
             this.initEventListeners();
-
+            
             console.log("initialized widget for site owner: " + this.siteOwnerId, "info");
         },
 
@@ -51,10 +51,10 @@ $(document).ready(function() {
             // I hate the way in which I have to plugin a context. YUI has bind
             // and a context param too! hail Jquery!!
             ei.focus(function(e) {
-                t.handleInputFocus.apply(t, e);
+                t.handleEmailInputFocus.apply(t, e);
             });
             ei.blur(function(e) {
-                t.handleInputBlur.apply(t, e);
+                t.handleEmailInputBlur.apply(t, e);
             });
             join.click(function(e) {
                 t.handleSubscribeClick.apply(t, e);
@@ -86,11 +86,11 @@ $(document).ready(function() {
          *
          * @param {Event} e is the normalized event object.
          */
-        handleInputFocus: function(e) {
+        handleEmailInputFocus: function(e) {
             var ei = this.emailInput,
                 value = $.trim(ei.val());
 
-            if (value === this.promptText) {
+            if (value === this.emailPromptText) {
                 ei.val("");
             }
             
@@ -103,16 +103,19 @@ $(document).ready(function() {
          *
          * @param {Event} e is the normalized event object.
          */
-        handleInputBlur: function(e) {
+        handleEmailInputBlur: function(e) {
             var ei = this.emailInput,
                 value = $.trim(ei.val());
 
             if (value === "") {
-                ei.val(this.promptText);
+                ei.val(this.emailPromptText);
                 ei.addClass("prompt");
             }
         }
     };
+
+    // Fetch localized messages.
+    
 
     //***************//
     // Initialize all the widgets on the page.
