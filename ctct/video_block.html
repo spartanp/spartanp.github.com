@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Video Block Prototype </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+        </style>
+        <h2> Video Block Prototype </h2>
+        <h3> Please enter a video url </h3>
+        <input type="text" id="video_url" class="span6" value="http://www.youtube.com/watch?v=lbsvRxNjckU&feature=g-all-u&context=G27bb8c2FAAAAAAAAAAA">
+        <input type="button" id="get_video" value="Get Video" class="btn btn-success">
+        
+        <h3> Status </h3>
+        <span class="label label-important" id="status"></span>
+        
+        <h3> Video Thumbnail </h3>
+        <div id="video_tn_container"></div>
+        
+        <h3> Playable Video </h3>
+        <div id="video_container"></div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="./youtube_util.js">
+        </script>
+        
+        <script>
+            function validateCallback(isValid, videoData) {
+                if (isValid) {
+                    $("#status").text("Valid Url");
+                    console.log("valid youtube url");
+                    $("#video_tn_container").html(
+                        '<img src="' + videoData.thumbnail.hqDefault + '">'
+                    );
+                    
+                    var embedHtml = YoutubeUtil.getEmbedObject(videoData.id);
+                    $("#video_container").html(embedHtml);
+                } else {
+                    $("#status").text("Invalid Url");
+                    $("#video_tn_container").html("");
+                    $("#video_container").html("");
+                }
+            }
+            
+            function init() {
+                $("#get_video").click(function(){
+                    var url = $.trim($("#video_url").val());
+                    YoutubeUtil.validateUrl(url, validateCallback);
+                })
+            }
+            $(document).ready(init);
+        </script>
+    </body>
+</html>
