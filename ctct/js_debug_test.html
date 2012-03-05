@@ -20,6 +20,7 @@
               $("#fetch-js").click(function(){
                   var content = "<script type='text\/javascript' src='.\/youtube_util.js'><\/script>";
                   $("#js-con").html(content);
+                  $.getScript("./jq_test.js");
               });
           }
           $(document).ready(init);
