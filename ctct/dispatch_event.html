@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title> Inline Event Handler </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body>
+        <style>
+        .page {
+            width: 74.8em;
+            margin: 0 auto;
+        }
+        </style>
+        <div class="page">
+            <input size="100" id="inp">
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script>
+        $("#inp").click(function(){
+           console.log("event dispatched"); 
+        });
+        
+        function simulateClick() {
+          var evt = document.createEvent("MouseEvents");
+          evt.initMouseEvent("click", true, true, window,
+            0, 0, 0, 79, 8, false, false, false, false, 0, null);
+          var canceled = !document.dispatchEvent(evt);
+          if(canceled) {
+            // A handler called preventDefault
+            //alert("canceled");
+          } else {
+            // None of the handlers called preventDefault
+            //alert("not canceled");
+          }
+        }
+
+        function showCoords(evt){
+          console.log(
+            "clientX value: " + evt.clientX + "\n"
+            + "clientY value: " + evt.clientY + "\n"
+          );
+        }
+        document.onmousedown = showCoords;
+        </script>
+    </body>
+</html>

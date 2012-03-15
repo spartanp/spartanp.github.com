@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Dialog OnClose Handler </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+		
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+        </style>
+
+        <input type="button" value="showDialog" id="show-dialog">
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+        
+        <script>
+            function init() {
+                var $dialog = $('<div>This dialog will show every time!</div>')
+                		.dialog({
+                			autoOpen: false,
+                			title: 'Basic Dialog'
+                		});
+                		
+                $dialog.bind("dialogclose", function(){
+                    console.log("dialog closed");
+                });
+
+                $('#show-dialog').click(function() {
+            		$dialog.dialog('open');
+            	});
+            }
+            $(document).ready(init);
+        </script>
+    </body>
+</html>
