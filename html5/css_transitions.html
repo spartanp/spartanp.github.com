@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> CSS3 Transitions Test </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+            .hover-trans {
+                -webkit-transition-property: opacity, color, width, height, margin-left;
+                -webkit-transition-duration: 1s ;
+                -webkit-transition-timing-function: ease-out;
+                transition-delay: 2s;
+                opacity: .5;
+                color: red;
+                width: 70px;
+                height: 70px;
+            }
+            .hover-trans:hover {
+                opacity: 1;
+                color: blue;
+                width: 140px;
+                height: 140px;
+                margin-left: 100px;
+            }
+        </style>
+        <h2> CSS3 Transitions Test Page </h2>
+        <h3> Image </h3>
+        <div>
+        <img src="./images/seinfeld.jpg" class="hover-trans">
+        </div>
+        <div class="hover-trans">
+            Some text content here.
+        </div>
+        <script src="../jq/jquery-1.6.js"></script>
+    </body>
+</html>
