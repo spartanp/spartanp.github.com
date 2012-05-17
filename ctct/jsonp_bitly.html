@@ -28,8 +28,16 @@
             
             $(document).ready(function(){
                 $("#jsonpr").click(function(e){
-                   var reqUrl = "http://api.bitly.com/v3/shorten?login=constantcontactp4&apiKey=R_d47c3427d4001caed30065146c098e66&longUrl=http://google.com&format=json&callback=bitlyCallback";
-                   $.getScript(reqUrl);
+                    var reqUrl = "http://api.bitly.com/v3/shorten?login=constantcontactp4&apiKey=R_d47c3427d4001caed30065146c098e66&longUrl=http://google.com&format=json",
+                        jsonpRequestConf = {
+                            dataType: "jsonp",
+                            url: reqUrl,
+                            success: function(res) {
+                                $("#jsonp_result").append("<div>" + res.data.url + "</div>");
+                            }
+                        };
+                    
+                   $.ajax(jsonpRequestConf);
                 });
                 
                 $("#corsr").click(function(e){

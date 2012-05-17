@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Page Cache Test </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+        </style>
+        <h2> Page Cache </h2>
+        <div id="test"> Some text here </div>
+        <button id="change-color">change color</button>
+        <a href="./index.html"> go to index </a>
+        
+        <script src="./jq/jquery-1.6.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#change-color").click(function(){
+                    var n = $("#test").css("color", "red");
+                    n.html("new text");
+                });
+            });
+        </script>
+    </body>
+</html>

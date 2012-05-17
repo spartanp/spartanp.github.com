@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Event Capture and Bubble </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+            div {
+                padding: 5px;
+            }
+        </style>
+        <h2>  Event Capture and Bubble </h2>
+        <div id="e1">
+            Element 1
+            <div id="e2">
+                Capture event listener
+                <div id="e3">
+                    Bubble event listener
+                    <div id="e4">
+                        Bubble event listener that will never be trigerred
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="log-elem" style="padding:0;">
+        </div>
+        
+        <script src="../jq/jquery-1.6.js"></script>
+        
+        <script>
+            function custlog(message) {
+                var logelem = $("#log-elem");
+                logelem.append("<div>" + message + "</div>");
+            }
+            
+            function init() {
+                var e2 = document.getElementById("e2"),
+                    e3 = document.getElementById("e3"),
+                    e1 = document.getElementById("e1"),
+                    e4 = document.getElementById("e4");
+                e2.addEventListener("click", function() {
+                    custlog("capture event on element 2 triggered");
+                }, true);
+                
+                e3.addEventListener("click", function() {
+                    custlog("bubble event on element 3 triggered");
+                }, false);
+                
+                e3.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    custlog("capture event on element 3 triggered and prevented");
+                }, true);
+
+                e1.addEventListener("click", function() {
+                    custlog("bubble event on element 1 triggered");
+                }, false);
+                
+                e4.addEventListener("click", function() {
+                    custlog("bubble event on element 4 triggered");
+                }, false);
+                
+            }
+            
+            $(document).ready(init);
+        </script>
+    </body>
+</html>
