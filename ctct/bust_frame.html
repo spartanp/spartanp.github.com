@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Frame Buster Prototype </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 20px;
+            }
+        </style>
+        <h2> I am a frame buster </h2>
+        <p> When I am loaded in a iframe, I make myself top after 2 seconds </p>
+        <script src="../jq/jquery-1.6.js"></script>
+        <script>
+            $(document).ready(function(){
+               setTimeout(function() {
+                   console.log("making myself the top");
+                   top.location = self.location;
+               }, 2000) 
+            });
+        </script>
+    </body>
+</html>
