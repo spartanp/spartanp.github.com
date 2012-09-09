@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Gather timeout="10" finishOnKey="*" action="http://spartanp.github.com/twil/success.xml">
+        <Say>This is a agreement. Do you agree to sign this? Press 1 to Sign the document or 2 to decline.</Say>
+    </Gather>
+</Response>

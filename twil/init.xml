@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Gather timeout="10" finishOnKey="*" action="http://spartanp.github.com/twil/read.xml">
+        <Say>Prathap sent you a document to sign. Do you want to sign it now?</Say>
+    </Gather>
+</Response>
