@@ -7,12 +7,12 @@
       var count = 0;
       function dump() {
         var val = 'a';
-        for (var i = 0; i < 10000; i++) {
+        for (var i = 0; i < 100000; i++) {
           val += 'a';
         }
         localStorage[count++] = val;
       }
-      setInterval(dump, 100000);
+      setInterval(dump, 1000);
     </script>
   </body>
 </html>
